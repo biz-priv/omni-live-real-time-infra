@@ -86,7 +86,7 @@ resource "aws_dynamodb_table" "omni-pb-rt-movement-order" {
 }
 
 resource "aws_dynamodb_table" "omni-pb-214-add-milestone" {
-  name             = "omni-pb-rt-214-add-milestone-${var.env}"
+  name             = "omni-pb-214-add-milestone-${var.env}"
   billing_mode     = "PAY_PER_REQUEST"
   hash_key         = "Housebill"
   range_key        = "StatusCode"
