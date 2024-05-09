@@ -4,7 +4,7 @@ resource "aws_ssm_parameter" "omni-pb-214-add-milestone-dynamodb-name" {
   value = var.omni_pb_214_add_milestone_db_name
 
   tags = {
-    Application = "omni-coe-table"
+    Application = "omni-live-pb-updates"
 
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
@@ -18,7 +18,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-movement-dynamodb-name" {
   value = var.omni_pb_rt_movement_db_name
 
   tags = {
-    Application = "omni-coe-table"
+    Application = "omni-live-pb-updates"
 
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
@@ -32,7 +32,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-movement-order-dynamodb-name" {
   value = var.omni_pb_rt_movement_order_db_name
 
   tags = {
-    Application = "omni-coe-table"
+    Application = "omni-live-pb-updates"
 
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
@@ -46,7 +46,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-orders-dynamodb-name" {
   value = var.omni_pb_rt_orders_db_name
 
   tags = {
-    Application = "omni-coe-table"
+    Application = "omni-live-pb-updates"
 
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
@@ -60,7 +60,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-stop-dynamodb-name" {
   value = var.omni_pb_rt_stop_db_name
 
   tags = {
-    Application = "omni-coe-table"
+    Application = "omni-live-pb-updates"
 
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
