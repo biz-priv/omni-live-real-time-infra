@@ -17,3 +17,28 @@ variable "created_by" {
   type     = string
   nullable = false
 }
+
+variable "omni_pb_214_add_milestone_db_name" {
+  type    = string
+  nullable = false
+}
+
+variable "omni_pb_rt_movement_db_name" {
+  type    = string
+  nullable = false
+}
+
+variable "omni_pb_rt_movement_order_db_name" {
+  type    = string
+  nullable = false
+}
+
+variable "omni_pb_rt_orders_db_name" {
+  type    = string
+  nullable = false
+}
+
+variable "omni_pb_rt_stop_db_name" {
+  type    = string
+  nullable = false
+}
