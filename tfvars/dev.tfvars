@@ -7,3 +7,4 @@ omni_pb_rt_movement_db_name                   = "omni-pb-rt-movement-dev"
 omni_pb_rt_movement_order_db_name             = "omni-pb-rt-movement-order-dev"
 omni_pb_rt_orders_db_name                     = "omni-pb-rt-orders-dev"
 omni_pb_rt_stop_db_name                       = "omni-pb-rt-stop-dev"
+omni_pb_add_milestone_emails                  = ["omnidev@bizcloudexperts.com"]

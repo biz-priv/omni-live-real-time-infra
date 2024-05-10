@@ -42,3 +42,8 @@ variable "omni_pb_rt_stop_db_name" {
   type    = string
   nullable = false
 }
+
+variable "omni_pb_add_milestone_emails" {
+  type    = list(string)
+  nullable = false
+}
