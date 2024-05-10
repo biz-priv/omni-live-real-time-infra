@@ -29,6 +29,17 @@ resource "aws_dynamodb_table" "omni-pb-rt-movement" {
     type = "S"
   }
 
+  attribute {
+    name = "origin_stop_id"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "OriginStopIndex"
+    hash_key        = "origin_stop_id"
+    projection_type = "ALL" 
+  }
+
   tags = {
     Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
