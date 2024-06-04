@@ -34,9 +34,20 @@ resource "aws_dynamodb_table" "omni-pb-rt-movement" {
     type = "S"
   }
 
+  attribute {
+    name = "dest_stop_id"
+    type = "S"
+  }
+
   global_secondary_index {
     name            = "OriginStopIndex"
     hash_key        = "origin_stop_id"
+    projection_type = "ALL" 
+  }
+
+  global_secondary_index {
+    name            = "DestStopIndex"
+    hash_key        = "dest_stop_id"
     projection_type = "ALL" 
   }
 
