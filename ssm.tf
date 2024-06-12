@@ -101,3 +101,16 @@ resource "aws_ssm_parameter" "omni-pb-error-topic" {
     STAGE       = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-ivia-add-milestone-console-url" {
+  name  = "/omni-ivia/${var.env}/addMilestone/console/url"
+  type  = "String"
+  value = var.omni_ivia_addMilestone_console_url
+
+  tags = {
+    Application = "Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
