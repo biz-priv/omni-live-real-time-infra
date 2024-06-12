@@ -102,10 +102,10 @@ resource "aws_ssm_parameter" "omni-pb-error-topic" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-ivia-add-milestone-url-2" {
-  name  = "/omni-ivia/${var.env}/addMilestone/url-2"
+resource "aws_ssm_parameter" "omni-ivia-add-milestone-console-url" {
+  name  = "/omni-ivia/${var.env}/addMilestone/console/url"
   type  = "String"
-  value = var.omni_ivia_addMilestone_url_2
+  value = var.omni_ivia_addMilestone_console_url
 
   tags = {
     Application = "Real Time Updates"
