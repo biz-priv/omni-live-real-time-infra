@@ -22,3 +22,8 @@ variable "omni_pb_add_milestone_emails" {
   type    = list(string)
   nullable = false
 }
+
+variable "omni_ivia_addMilestone_url_2" {
+  type     = string
+  nullable = false
+}
