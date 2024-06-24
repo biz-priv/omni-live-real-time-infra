@@ -70,6 +70,17 @@ resource "aws_dynamodb_table" "omni-pb-rt-stop" {
     type = "S"
   }
 
+  attribute {
+    name = "order_id"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "order_id-index"
+    hash_key        = "order_id"
+    projection_type = "ALL" 
+  }
+
   tags = {
     Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
