@@ -114,3 +114,55 @@ resource "aws_ssm_parameter" "omni-ivia-add-milestone-console-url" {
     STAGE       = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-live-rt-replication-movement-Order-RT-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/movement-Order-RT-ddb-to-sns/arn"
+  type  = "String"
+  value = aws_sns_topic.omni-live-rt-replication-movement-Order-RT-ddb-to-sns.name
+
+  tags = {
+    Application = "omni-live-rt-replication"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-live-rt-replication-movement-RT-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/movement-RT-ddb-to-sns/arn"
+  type  = "String"
+  value = aws_sns_topic.omni-live-rt-replication-movement-RT-ddb-to-sns.name
+
+  tags = {
+    Application = "omni-live-rt-replication"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-live-rt-replication-orders-RT-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/orders-RT-ddb-to-sns/arn"
+  type  = "String"
+  value = aws_sns_topic.omni-live-rt-replication-orders-RT-ddb-to-sns.name
+
+  tags = {
+    Application = "omni-live-rt-replication"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-live-rt-replication-stop-RT-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/stop-RT-ddb-to-sns/arn"
+  type  = "String"
+  value = aws_sns_topic.omni-live-rt-replication-stop-RT-ddb-to-sns.name
+
+  tags = {
+    Application = "omni-live-rt-replication"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
