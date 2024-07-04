@@ -9,20 +9,20 @@ resource "aws_sns_topic_subscription" "omni_pb_add_milestone_emails" {
   endpoint  = each.value
 }
 
-resource "aws_sns_topic" "omni-live-rt-replication-movement-Order-RT-ddb-to-sns" {
-  name = "omni-live-rt-replication-movement-Order-RT-ddb-to-sns-${var.env}"
+resource "aws_sns_topic" "omni-live-rt-replication-movement-order-rt-ddb-to-sns" {
+  name = "omni-live-rt-replication-movement-Order-rt-ddb-to-sns-${var.env}"
 }
 
-resource "aws_sns_topic" "omni-live-rt-replication-movement-RT-ddb-to-sns" {
-  name = "omni-live-rt-replication-movement-RT-ddb-to-sns-${var.env}"
+resource "aws_sns_topic" "omni-live-rt-replication-movement-rt-ddb-to-sns" {
+  name = "omni-live-rt-replication-movement-rt-ddb-to-sns-${var.env}"
 }
 
-resource "aws_sns_topic" "omni-live-rt-replication-orders-RT-ddb-to-sns" {
-  name = "omni-live-rt-replication-orders-RT-ddb-to-sns-${var.env}"
+resource "aws_sns_topic" "omni-live-rt-replication-orders-rt-ddb-to-sns" {
+  name = "omni-live-rt-replication-orders-rt-ddb-to-sns-${var.env}"
 }
 
-resource "aws_sns_topic" "omni-live-rt-replication-stop-RT-ddb-to-sns" {
-  name = "omni-live-rt-replication-stop-RT-ddb-to-sns-${var.env}"
+resource "aws_sns_topic" "omni-live-rt-replication-stop-rt-ddb-to-sns" {
+  name = "omni-live-rt-replication-stop-rt-ddb-to-sns-${var.env}"
 }
 
 

@@ -115,10 +115,10 @@ resource "aws_ssm_parameter" "omni-ivia-add-milestone-console-url" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-live-rt-replication-movement-Order-RT-ddb-to-sns" {
-  name  = "/omni-live-rt-replication/${var.env}/movement-Order-RT-ddb-to-sns/arn"
+resource "aws_ssm_parameter" "omni-live-rt-replication-movement-order-rt-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/movement-order-rt-ddb-to-sns/arn"
   type  = "String"
-  value = aws_sns_topic.omni-live-rt-replication-movement-Order-RT-ddb-to-sns.name
+  value = aws_sns_topic.omni-live-rt-replication-movement-order-rt-ddb-to-sns.name
 
   tags = {
     Application = "omni-live-rt-replication"
@@ -128,10 +128,10 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-movement-Order-RT-ddb-to-
   }
 }
 
-resource "aws_ssm_parameter" "omni-live-rt-replication-movement-RT-ddb-to-sns" {
-  name  = "/omni-live-rt-replication/${var.env}/movement-RT-ddb-to-sns/arn"
+resource "aws_ssm_parameter" "omni-live-rt-replication-movement-rt-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/movement-rt-ddb-to-sns/arn"
   type  = "String"
-  value = aws_sns_topic.omni-live-rt-replication-movement-RT-ddb-to-sns.name
+  value = aws_sns_topic.omni-live-rt-replication-movement-rt-ddb-to-sns.name
 
   tags = {
     Application = "omni-live-rt-replication"
@@ -141,10 +141,10 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-movement-RT-ddb-to-sns" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-live-rt-replication-orders-RT-ddb-to-sns" {
-  name  = "/omni-live-rt-replication/${var.env}/orders-RT-ddb-to-sns/arn"
+resource "aws_ssm_parameter" "omni-live-rt-replication-orders-rt-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/orders-rt-ddb-to-sns/arn"
   type  = "String"
-  value = aws_sns_topic.omni-live-rt-replication-orders-RT-ddb-to-sns.name
+  value = aws_sns_topic.omni-live-rt-replication-orders-rt-ddb-to-sns.name
 
   tags = {
     Application = "omni-live-rt-replication"
@@ -154,10 +154,10 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-orders-RT-ddb-to-sns" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-live-rt-replication-stop-RT-ddb-to-sns" {
-  name  = "/omni-live-rt-replication/${var.env}/stop-RT-ddb-to-sns/arn"
+resource "aws_ssm_parameter" "omni-live-rt-replication-stop-rt-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/stop-rt-ddb-to-sns/arn"
   type  = "String"
-  value = aws_sns_topic.omni-live-rt-replication-stop-RT-ddb-to-sns.name
+  value = aws_sns_topic.omni-live-rt-replication-stop-rt-ddb-to-sns.name
 
   tags = {
     Application = "omni-live-rt-replication"
