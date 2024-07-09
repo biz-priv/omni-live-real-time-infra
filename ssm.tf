@@ -121,7 +121,7 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-movement-order-rt-ddb-to-
   value = aws_sns_topic.omni-live-rt-replication-movement-order-rt-ddb-to-sns.name
 
   tags = {
-    Application = "omni-live-rt-replication"
+    Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -134,7 +134,7 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-movement-rt-ddb-to-sns" {
   value = aws_sns_topic.omni-live-rt-replication-movement-rt-ddb-to-sns.name
 
   tags = {
-    Application = "omni-live-rt-replication"
+    Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -147,7 +147,7 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-orders-rt-ddb-to-sns" {
   value = aws_sns_topic.omni-live-rt-replication-orders-rt-ddb-to-sns.name
 
   tags = {
-    Application = "omni-live-rt-replication"
+    Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -160,7 +160,33 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-stop-rt-ddb-to-sns" {
   value = aws_sns_topic.omni-live-rt-replication-stop-rt-ddb-to-sns.name
 
   tags = {
-    Application = "omni-live-rt-replication"
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-live-realtime-failed-records-table-name" {
+  name  = "/omni-live-realtime/${var.env}/failed-records/ddb.tableName"
+  type  = "String"
+  value = aws_dynamodb_table.omni-live-realtime-failed-records-table.name
+
+  tags = {
+    Application = "Live Power broker Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-live-realtime-failed-records-table-streamArn" {
+  name  = "/omni-live-realtime/${var.env}/failed-records/ddb.streamArn"
+  type  = "SecureString"
+  value = aws_dynamodb_table.omni-live-realtime-failed-records-table.stream_arn
+
+  tags = {
+    Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env

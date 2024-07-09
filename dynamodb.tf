@@ -142,3 +142,34 @@ resource "aws_dynamodb_table" "omni-pb-214-add-milestone" {
     Environment = var.env
   }
 }
+
+resource "aws_dynamodb_table" "omni-live-realtime-failed-records-table" {
+  name             = "omni-live-realtime-failed-records-${var.env}"
+  billing_mode     = "PAY_PER_REQUEST"
+  hash_key         = "UUid"
+  stream_enabled   = true
+  stream_view_type = "NEW_AND_OLD_IMAGES"
+
+  attribute {
+    name = "UUid"
+    type = "S"
+  }
+  attribute {
+    name = "Status"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "Status-index"
+    hash_key        = "Status"
+    projection_type = "ALL"
+  }  
+
+
+  tags = {
+    Application = "omni-live-rt-replication"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
