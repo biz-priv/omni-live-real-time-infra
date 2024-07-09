@@ -167,7 +167,7 @@ resource "aws_dynamodb_table" "omni-live-realtime-failed-records-table" {
 
 
   tags = {
-    Application = "omni-live-rt-replication"
+    Application = "Live Power broker Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
