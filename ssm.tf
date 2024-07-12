@@ -17,7 +17,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-movement-dynamodb-name" {
   value = aws_dynamodb_table.omni-pb-rt-movement.name
 
   tags = {
-    Application = "omni-live-pb-updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -30,7 +30,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-movement-order-dynamodb-name" {
   value = aws_dynamodb_table.omni-pb-rt-movement-order.name
 
   tags = {
-    Application = "omni-live-pb-updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -43,7 +43,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-orders-dynamodb-name" {
   value = aws_dynamodb_table.omni-pb-rt-orders.name
 
   tags = {
-    Application = "omni-live-pb-updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -56,7 +56,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-stop-dynamodb-name" {
   value =  aws_dynamodb_table.omni-pb-rt-stop.name
 
   tags = {
-    Application = "omni-live-pb-updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -69,12 +69,53 @@ resource "aws_ssm_parameter" "movement-streamArn" {
   value = aws_dynamodb_table.omni-pb-rt-movement.stream_arn
 
   tags = {
-    Application = "Real Time Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
   }
 }
+
+resource "aws_ssm_parameter" "movement-order-streamArn" {
+  name  = "/omni-pb-rt/${var.env}/movement-order/ddb.streamArn"
+  type  = "String"
+  value = aws_dynamodb_table.omni-pb-rt-movement-order.stream_arn
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "stop-streamArn" {
+  name  = "/omni-pb-rt/${var.env}/stop/ddb.streamArn"
+  type  = "String"
+  value = aws_dynamodb_table.omni-pb-rt-stop.stream_arn
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "orders-streamArn" {
+  name  = "/omni-pb-rt/${var.env}/orders/ddb.streamArn"
+  type  = "String"
+  value = aws_dynamodb_table.omni-pb-rt-orders.stream_arn
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+
 
 resource "aws_ssm_parameter" "add-milestone-streamArn" {
   name  = "/omni-pb-rt/${var.env}/214-add-milestone/ddb.streamArn"
@@ -121,7 +162,7 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-movement-order-rt-ddb-to-
   value = aws_sns_topic.omni-live-rt-replication-movement-order-rt-ddb-to-sns.name
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -134,7 +175,7 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-movement-rt-ddb-to-sns" {
   value = aws_sns_topic.omni-live-rt-replication-movement-rt-ddb-to-sns.name
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -147,7 +188,7 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-orders-rt-ddb-to-sns" {
   value = aws_sns_topic.omni-live-rt-replication-orders-rt-ddb-to-sns.name
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -160,7 +201,7 @@ resource "aws_ssm_parameter" "omni-live-rt-replication-stop-rt-ddb-to-sns" {
   value = aws_sns_topic.omni-live-rt-replication-stop-rt-ddb-to-sns.name
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -173,7 +214,7 @@ resource "aws_ssm_parameter" "omni-live-realtime-failed-records-table-name" {
   value = aws_dynamodb_table.omni-live-realtime-failed-records-table.name
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
@@ -186,7 +227,7 @@ resource "aws_ssm_parameter" "omni-live-realtime-failed-records-table-streamArn"
   value = aws_dynamodb_table.omni-live-realtime-failed-records-table.stream_arn
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
