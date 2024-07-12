@@ -11,11 +11,12 @@ resource "aws_dynamodb_table" "omni-pb-rt-orders" {
   }
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
   }
 }
+
 
 resource "aws_dynamodb_table" "omni-pb-rt-movement" {
   name             = "omni-pb-rt-movement-${var.env}"
@@ -52,7 +53,7 @@ resource "aws_dynamodb_table" "omni-pb-rt-movement" {
   }
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
   }
@@ -82,7 +83,7 @@ resource "aws_dynamodb_table" "omni-pb-rt-stop" {
   }
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
   }
@@ -112,7 +113,7 @@ resource "aws_dynamodb_table" "omni-pb-rt-movement-order" {
   }
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
   }
@@ -167,7 +168,7 @@ resource "aws_dynamodb_table" "omni-live-realtime-failed-records-table" {
 
 
   tags = {
-    Application = "Live Power broker Updates"
+    Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
