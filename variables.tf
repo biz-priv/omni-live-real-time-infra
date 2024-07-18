@@ -18,12 +18,3 @@ variable "created_by" {
   nullable = false
 }
 
-variable "omni_pb_add_milestone_emails" {
-  type    = list(string)
-  nullable = false
-}
-
-variable "omni_ivia_addMilestone_console_url" {
-  type     = string
-  nullable = false
-}
