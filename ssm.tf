@@ -1,15 +1,4 @@
-resource "aws_ssm_parameter" "omni-pb-214-add-milestone-dynamodb-name" {
-  name  = "/omni-pb-214/${var.env}/add-milestone/db"
-  type  = "String"
-  value = aws_dynamodb_table.omni-pb-214-add-milestone.name
 
-  tags = {
-    Application = "omni-live-pb-updates"
-    CreatedBy   = "BizCloudExperts"
-    Environment = var.env
-    STAGE       = var.env
-  }
-}
 
 resource "aws_ssm_parameter" "omni-pb-rt-movement-dynamodb-name" {
   name  = "/omni-pb-rt/${var.env}/movement/db"
@@ -36,6 +25,20 @@ resource "aws_ssm_parameter" "omni-pb-rt-movement-order-dynamodb-name" {
     Environment = var.env
     STAGE       = var.env
     Name = "omni-pb-rt-movement-order"
+  }
+}
+
+resource "aws_ssm_parameter" "movement-order-index" {
+  name  = "/omni-pb-rt/${var.env}/movement-order/ddb.index"
+  type  = "SecureString"
+  value = element(aws_dynamodb_table.omni-pb-rt-movement-order.global_secondary_index[*].name, 0)
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name = "omni-pb-rt-movement-order-index"
   }
 }
 
@@ -120,47 +123,6 @@ resource "aws_ssm_parameter" "orders-streamArn" {
     Environment = var.env
     STAGE       = var.env
     Name = "omni-pb-rt-orders"
-  }
-}
-
-
-
-resource "aws_ssm_parameter" "add-milestone-streamArn" {
-  name  = "/omni-pb-rt/${var.env}/214-add-milestone/ddb.streamArn"
-  type  = "String"
-  value = aws_dynamodb_table.omni-pb-214-add-milestone.stream_arn
-
-  tags = {
-    Application = "Real Time Updates"
-    CreatedBy   = "BizCloudExperts"
-    Environment = var.env
-    STAGE       = var.env
-  }
-}
-
-resource "aws_ssm_parameter" "omni-pb-error-topic" {
-  name  = "/omni-pb-rt/${var.env}/error-notification/arn"
-  type  = "String"
-  value = aws_sns_topic.omni-pb-add-milestone-error-notification.name
-
-  tags = {
-    Application = "omni-live-pb-updates"
-    CreatedBy   = "BizCloudExperts"
-    Environment = var.env
-    STAGE       = var.env
-  }
-}
-
-resource "aws_ssm_parameter" "omni-ivia-add-milestone-console-url" {
-  name  = "/omni-ivia/${var.env}/addMilestone/console/url"
-  type  = "String"
-  value = var.omni_ivia_addMilestone_console_url
-
-  tags = {
-    Application = "Real Time Updates"
-    CreatedBy   = "BizCloudExperts"
-    Environment = var.env
-    STAGE       = var.env
   }
 }
 
