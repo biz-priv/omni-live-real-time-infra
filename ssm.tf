@@ -14,6 +14,34 @@ resource "aws_ssm_parameter" "omni-pb-rt-movement-dynamodb-name" {
   }
 }
 
+resource "aws_ssm_parameter" "movement-deststop-index" {
+  name  = "/omni-pb-rt/${var.env}/movement-deststop/ddb.index"
+  type  = "SecureString"
+  value = element(aws_dynamodb_table.omni-pb-rt-movement.global_secondary_index[*].name, 1)
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name = "omni-pb-rt-movement-deststop-index"
+  }
+}
+
+resource "aws_ssm_parameter" "movement-originstop-index" {
+  name  = "/omni-pb-rt/${var.env}/movement-originstopIndex/ddb.index"
+  type  = "SecureString"
+  value = element(aws_dynamodb_table.omni-pb-rt-movementr.global_secondary_index[*].name, 0)
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name = "omni-pb-rt-movement-originstop-index"
+  }
+}
+
 resource "aws_ssm_parameter" "omni-pb-rt-movement-order-dynamodb-name" {
   name  = "/omni-pb-rt/${var.env}/movement-order/db"
   type  = "String"
@@ -56,6 +84,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-orders-dynamodb-name" {
   }
 }
 
+
 resource "aws_ssm_parameter" "omni-pb-rt-stop-dynamodb-name" {
   name  = "/omni-pb-rt/${var.env}/stop/db"
   type  = "String"
@@ -67,6 +96,20 @@ resource "aws_ssm_parameter" "omni-pb-rt-stop-dynamodb-name" {
     Environment = var.env
     STAGE       = var.env
     Name = "omni-pb-rt-stop"
+  }
+}
+
+resource "aws_ssm_parameter" "stop-index" {
+  name  = "/omni-pb-rt/${var.env}/stop/ddb.index"
+  type  = "SecureString"
+  value = element(aws_dynamodb_table.omni-pb-rt-stop.global_secondary_index[*].name, 0)
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name = "omni-pb-rt-stop-index"
   }
 }
 
@@ -193,6 +236,20 @@ resource "aws_ssm_parameter" "omni-live-realtime-failed-records-table-name" {
     Environment = var.env
     STAGE       = var.env
     Name = "omni-live-realtime-failed-records"
+  }
+}
+
+resource "aws_ssm_parameter" "failed-records-index" {
+  name  = "/omni-live-realtime/${var.env}/failed-records/ddb.index"
+  type  = "SecureString"
+  value = element(aws_dynamodb_table.omni-live-realtime-failed-records-table.global_secondary_index[*].name, 0)
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name = "omni-pb-rt-stop-index"
   }
 }
 
