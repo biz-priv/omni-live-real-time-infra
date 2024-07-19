@@ -31,7 +31,7 @@ resource "aws_ssm_parameter" "movement-deststop-index" {
 resource "aws_ssm_parameter" "movement-originstop-index" {
   name  = "/omni-pb-rt/${var.env}/movement-originstopIndex/ddb.index"
   type  = "SecureString"
-  value = element(aws_dynamodb_table.omni-pb-rt-movementr.global_secondary_index[*].name, 0)
+  value = element(aws_dynamodb_table.omni-pb-rt-movement.global_secondary_index[*].name, 0)
 
   tags = {
     Application = "Live Real Time Updates"
