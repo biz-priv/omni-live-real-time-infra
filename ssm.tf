@@ -14,8 +14,8 @@ resource "aws_ssm_parameter" "omni-pb-rt-movement-dynamodb-name" {
   }
 }
 
-resource "aws_ssm_parameter" "movement-deststop-index" {
-  name  = "/omni-pb-rt/${var.env}/movement-deststop/ddb.index"
+resource "aws_ssm_parameter" "movement-originstop-index" {
+  name  = "/omni-pb-rt/${var.env}/movement-originstopIndex/ddb.index"
   type  = "SecureString"
   value = element(aws_dynamodb_table.omni-pb-rt-movement.global_secondary_index[*].name, 1)
 
@@ -24,12 +24,12 @@ resource "aws_ssm_parameter" "movement-deststop-index" {
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
-    Name = "omni-pb-rt-movement-deststop-index"
+    Name = "omni-pb-rt-movement-originstop-index"
   }
 }
 
-resource "aws_ssm_parameter" "movement-originstop-index" {
-  name  = "/omni-pb-rt/${var.env}/movement-originstopIndex/ddb.index"
+resource "aws_ssm_parameter" "movement-deststop-index" {
+  name  = "/omni-pb-rt/${var.env}/movement-deststop/ddb.index"
   type  = "SecureString"
   value = element(aws_dynamodb_table.omni-pb-rt-movement.global_secondary_index[*].name, 0)
 
@@ -38,7 +38,7 @@ resource "aws_ssm_parameter" "movement-originstop-index" {
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
-    Name = "omni-pb-rt-movement-originstop-index"
+    Name = "omni-pb-rt-movement-deststop-index"
   }
 }
 
