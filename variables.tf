@@ -17,4 +17,3 @@ variable "created_by" {
   type     = string
   nullable = false
 }
-

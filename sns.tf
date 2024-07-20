@@ -13,9 +13,3 @@ resource "aws_sns_topic" "omni-live-rt-replication-orders-rt-ddb-to-sns" {
 resource "aws_sns_topic" "omni-live-rt-replication-stop-rt-ddb-to-sns" {
   name = "omni-live-rt-replication-stop-rt-ddb-to-sns-${var.env}"
 }
-
-
-
-
-
-
