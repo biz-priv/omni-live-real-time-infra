@@ -14,7 +14,7 @@ resource "aws_dynamodb_table" "omni-pb-rt-orders" {
     Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
-    Name = "omni-pb-rt-orders"
+    Name = "omni-pb-rt-orders-${var.env}"
   }
 }
 
@@ -57,7 +57,7 @@ resource "aws_dynamodb_table" "omni-pb-rt-movement" {
     Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
-    Name = "omni-pb-rt-movement"
+    Name = "omni-pb-rt-movement-${var.env}"
   }
 }
 
@@ -88,7 +88,7 @@ resource "aws_dynamodb_table" "omni-pb-rt-stop" {
     Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
-    Name = "omni-pb-rt-stop"
+    Name = "omni-pb-rt-stop--${var.env}"
   }
 }
 
@@ -119,7 +119,7 @@ resource "aws_dynamodb_table" "omni-pb-rt-movement-order" {
     Application = "Live Real Time Updates"
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
-    Name = "omni-pb-rt-movement-order"
+    Name = "omni-pb-rt-movement-order-${var.env}"
   }
 }
 
@@ -138,7 +138,6 @@ resource "aws_dynamodb_table" "omni-live-realtime-failed-records-table" {
     name = "Status"
     type = "S"
   }
-+
 
   global_secondary_index {
     name            = "Status-index"
@@ -152,6 +151,6 @@ resource "aws_dynamodb_table" "omni-live-realtime-failed-records-table" {
     CreatedBy   = "BizCloudExperts"
     Environment = var.env
     STAGE       = var.env
-    Name = "omni-live-realtime-failed-records-table"
+    Name = "omni-live-realtime-failed-records-table-${var.env}"
   }
 }
