@@ -17,3 +17,13 @@ variable "created_by" {
   type     = string
   nullable = false
 }
+
+variable "omnidev_email" {
+  type    = string
+  nullable = false
+}
+
+variable "omni_noreply_email" {
+  type    = string
+  nullable = false
+}
