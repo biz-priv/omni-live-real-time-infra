@@ -263,3 +263,29 @@ resource "aws_ssm_parameter" "omni-live-realtime-failed-records-table-streamArn"
     Name        = "omni-live-realtime-failed-records-${var.env}"
   }
 }
+
+resource "aws_ssm_parameter" "omni-realtime-omnidev-email" {
+  name  = "/omni-realtime/${var.env}/omni-dev/email"
+  type  = "String"
+  value = var.omnidev_email
+
+  tags = {
+    Application = "Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
+
+resource "aws_ssm_parameter" "omni-realtime-no-reply-email" {
+  name  = "/omni-realtime/${var.env}/omni-no-reply/email"
+  type  = "String"
+  value = var.omni_noreply_email
+
+  tags = {
+    Application = "Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}
