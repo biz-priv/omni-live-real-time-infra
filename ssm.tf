@@ -289,3 +289,16 @@ resource "aws_ssm_parameter" "omni-realtime-no-reply-email" {
     STAGE       = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-realtime-lvlp-s3-bucket" {
+  name  = "/omni-realtime/${var.env}/lvlp/s3-bucket"
+  type  = "String"
+  value = var.omni_lvlp_bucket
+
+  tags = {
+    Application = "Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+  }
+}

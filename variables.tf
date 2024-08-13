@@ -27,3 +27,8 @@ variable "omni_noreply_email" {
   type    = string
   nullable = false
 }
+
+variable "omni_lvlp_bucket" {
+  type    = string
+  nullable = false
+}
