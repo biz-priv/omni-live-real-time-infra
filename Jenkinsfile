@@ -81,7 +81,7 @@ pipeline{
 	stage('Terraform Apply'){
 			steps{
 				script{
-				 if("${env.ENVIRONMENT}".contains("dev")){
+				if("${env.ENVIRONMENT}".contains("dev")){
 					withAWS(credentials: 'omni-aws-creds'){
 					sh "terraform apply -no-color -var-file='tfvars/dev.tfvars' --auto-approve"
 					}
