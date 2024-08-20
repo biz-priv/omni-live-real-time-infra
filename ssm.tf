@@ -302,3 +302,59 @@ resource "aws_ssm_parameter" "omni-realtime-lvlp-s3-bucket" {
     STAGE       = var.env
   }
 }
+
+resource "aws_ssm_parameter" "omni-pb-rt-callin-dynamodb-name" {
+  name  = "/omni-pb-rt/${var.env}/callin/ddb.name"
+  type  = "String"
+  value = aws_dynamodb_table.omni-pb-rt-callin.name
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "omni-pb-rt-callin-${var.env}"
+  }
+}
+
+resource "aws_ssm_parameter" "callin-streamArn" {
+  name  = "/omni-pb-rt/${var.env}/callin/ddb.streamArn"
+  type  = "String"
+  value = aws_dynamodb_table.omni-pb-rt-callin.stream_arn
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "omni-pb-rt-callin-${var.env}"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-live-rt-replication-callin-rt-ddb-to-sns" {
+  name  = "/omni-live-rt-replication/${var.env}/callin-rt-ddb-to-sns/arn"
+  type  = "String"
+  value = aws_sns_topic.omni-live-rt-replication-callin-rt-ddb-to-sns.arn
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "omni-live-rt-replication-callin-rt-ddb-sns-${var.env}"
+  }
+}
+
+resource "aws_ssm_parameter" "callin-index" {
+  name  = "/omni-pb-rt/${var.env}/callin/ddb.index"
+  type  = "SecureString"
+  value = element(aws_dynamodb_table.omni-pb-rt-callin.global_secondary_index[*].name, 0)
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "omni-pb-rt-callin-index-${var.env}"
+  }
+}

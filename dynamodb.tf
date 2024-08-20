@@ -154,3 +154,34 @@ resource "aws_dynamodb_table" "omni-live-realtime-failed-records-table" {
     Name = "omni-live-realtime-failed-records-table-${var.env}"
   }
 }
+
+resource "aws_dynamodb_table" "omni-pb-rt-callin" {
+  name             = "omni-pb-rt-callin-${var.env}"
+  billing_mode     = "PAY_PER_REQUEST"
+  hash_key         = "id"
+  stream_enabled   = true
+  stream_view_type = "NEW_AND_OLD_IMAGES"
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+
+  attribute {
+    name = "order_id"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "order_id-index"
+    hash_key        = "order_id"
+    projection_type = "ALL"
+  }
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    Name = "omni-pb-rt-callin-${var.env}"
+  }
+}
