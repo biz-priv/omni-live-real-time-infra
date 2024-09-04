@@ -10,7 +10,7 @@ resource "aws_sqs_queue" "omni_live_rt_queue_deadletter" {
   }
 }
 
-resource "aws_sqs_queue" "omni_live_rt_queue" {
+resource "aws_sqs_queue" "omni_live_rt_queue" { 
   name = "omni-live-rt-queue-${var.env}"
   visibility_timeout_seconds = 900
   redrive_policy = jsonencode({
