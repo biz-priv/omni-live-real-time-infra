@@ -1,5 +1,5 @@
 resource "aws_sqs_queue" "omni_live_rt_queue_deadletter" {
-name = "omni-live-rt-dlq-${var.env}"
+  name = "omni-live-rt-dlq-${var.env}"
   visibility_timeout_seconds = 900
   tags = {
     Application = "Live Real Time Updates"
@@ -11,7 +11,7 @@ name = "omni-live-rt-dlq-${var.env}"
 }
 
 resource "aws_sqs_queue" "omni_live_rt_queue" {
-name = "omni-live-rt-queue-${var.env}"
+  name = "omni-live-rt-queue-${var.env}"
   visibility_timeout_seconds = 900
   redrive_policy = jsonencode({
     maxReceiveCount     = 3
