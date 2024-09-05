@@ -1,7 +1,10 @@
-env                = "dev"
-region             = "us-east-1"
-aws_account_number = "332281781429"
-created_by         = "BizCloudExperts"
-omnidev_email      = "omnidev@bizcloudexperts.com"
-omni_noreply_email = "no-reply@omnilogistics.com"
-omni_lvlp_bucket   = "dms-dw-etl-lvlp"
+env                                         = "dev"
+region                                      = "us-east-1"
+aws_account_number                          = "332281781429"
+created_by                                  = "BizCloudExperts"
+omnidev_email                               = "omnidev@bizcloudexperts.com"
+omni_noreply_email                          = "no-reply@omnilogistics.com"
+omni_lvlp_bucket                            = "dms-dw-etl-lvlp"
+sqs_queue_name                              = ["omni-live-rt-callin-queue-dev", "omni-live-rt-movement-order-queue-dev"]
+sqs_deadletter_queue_name                   = ["omni-live-rt-callin-DLQ-dev", "omni-live-rt-movement-order-DLQ-dev"]
+s3_notification_table_name                  = ["callin", "movement_order"]
