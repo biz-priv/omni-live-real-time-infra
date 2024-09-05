@@ -7,4 +7,4 @@ omni_noreply_email                          = "no-reply@omnilogistics.com"
 omni_lvlp_bucket                            = "dms-dw-etl-lvlp"
 sqs_queue_name                              = ["omni-live-rt-callin-queue-dev", "omni-live-rt-movement-order-queue-dev"]
 sqs_deadletter_queue_name                   = ["omni-live-rt-callin-DLQ-dev", "omni-live-rt-movement-order-DLQ-dev"]
-s3_notification_table_name                  = ["callin", "movement_order"]
+s3_notification_table_name                  = ["callin/", "movement_order/"]
