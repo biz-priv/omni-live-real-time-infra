@@ -358,3 +358,33 @@ resource "aws_ssm_parameter" "callin-index" {
     Name        = "omni-pb-rt-callin-index-${var.env}"
   }
 }
+
+resource "aws_ssm_parameter" "sqs_queue_arn" {
+  count = length(var.sqs_queue_arn_ssm_name)
+  name  = element(var.sqs_queue_arn_ssm_name, count.index)
+  type  = "SecureString"
+  value = aws_sqs_queue.omni_live_rt_queue[count.index].arn
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = element(var.sqs_queue_arn_ssm_name, count.index)
+  }
+}
+
+resource "aws_ssm_parameter" "sqs_dlq_arn" {
+  count = length(var.sqs_deadletter_queue_arn_ssm_name)
+  name  = element(var.sqs_deadletter_queue_arn_ssm_name, count.index)
+  type  = "SecureString"
+  value = aws_sqs_queue.omni_live_rt_queue_deadletter[count.index].arn
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = element(var.sqs_deadletter_queue_arn_ssm_name, count.index)
+  }
+}
