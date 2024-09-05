@@ -1,5 +1,9 @@
+data "aws_s3_bucket" "omni_live_rt_bucket" {
+  bucket = "dms-dw-etl-lvlp"
+}
+
 resource "aws_s3_bucket_notification" "omni-live-rt-updates-s3-bucket-notification" {
-  bucket = aws_s3_bucket.omni-live-rt-updates-s3-bucket.id
+  bucket = data.aws_s3_bucket.omni_live_rt_bucket.id
   count  = length(var.sqs_queue_name)
   eventbridge = true
 
