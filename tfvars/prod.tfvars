@@ -5,3 +5,7 @@ created_by                                  = "BizCloudExperts"
 omnidev_email                               = "omnidev@bizcloudexperts.com"
 omni_noreply_email                          = "no-reply@omnilogistics.com"
 omni_lvlp_bucket                            = "dms-dw-etl-lvlp"
+sqs_queue_name                              = ["omni-live-rt-callin-queue-prod", "omni-live-rt-movement-order-queue-prod"]
+sqs_deadletter_queue_name                   = ["omni-live-rt-callin-DLQ-prod", "omni-live-rt-movement-order-DLQ-prod"]
+sqs_queue_arn_ssm_name                      = ["/omni-live-rt-updates/prod/callin/queue.arn", "/omni-live-rt-updates/prod/movement-order/queue.arn"]
+sqs_deadletter_queue_arn_ssm_name           = ["/omni-live-rt-updates/prod/callin/DLQ.arn", "/omni-live-rt-updates/prod/movement-order/DLQ.arn"]
