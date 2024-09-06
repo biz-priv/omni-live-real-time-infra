@@ -32,3 +32,23 @@ variable "omni_lvlp_bucket" {
   type    = string
   nullable = false
 }
+
+variable "sqs_queue_name" {
+  type     = list(any)
+  nullable = false
+}
+
+variable "sqs_deadletter_queue_name" {
+  type     = list(any)
+  nullable = false
+}
+
+variable "sqs_queue_arn_ssm_name" {
+  type     = list(any)
+  nullable = false
+}
+
+variable "sqs_deadletter_queue_arn_ssm_name" {
+  type     = list(any)
+  nullable = false
+}
