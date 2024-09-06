@@ -43,11 +43,6 @@ variable "sqs_deadletter_queue_name" {
   nullable = false
 }
 
-# variable "s3_notification_table_name" {
-#   type     = list(any)
-#   nullable = false
-# }
-
 variable "sqs_queue_arn_ssm_name" {
   type     = list(any)
   nullable = false
