@@ -185,3 +185,56 @@ resource "aws_dynamodb_table" "omni-pb-rt-callin" {
     Name = "omni-pb-rt-callin-${var.env}"
   }
 }
+
+resource "aws_dynamodb_table" "omni_pb_wt_finilise_cost_status_table" {
+  name             = "omni-pb-wt-finalise-cost-status-${var.env}"
+  billing_mode     = "PAY_PER_REQUEST"
+  hash_key         = "ShipmentId"
+  stream_enabled   = true
+  stream_view_type = "NEW_AND_OLD_IMAGES"
+
+  attribute {
+    name = "ShipmentId"
+    type = "S"
+  }
+
+  attribute {
+    name = "OrderNo"
+    type = "S"
+  }
+
+  attribute {
+    name = "ConsolNo"
+    type = "S"
+  }
+
+  attribute {
+    name = "Housebill"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "OrderNo-index"
+    hash_key        = "OrderNo"
+    projection_type = "ALL"
+  }
+
+  global_secondary_index {
+    name            = "ConsolNo-index"
+    hash_key        = "ConsolNo"
+    projection_type = "ALL"
+  }
+
+  global_secondary_index {
+    name            = "Housebill-index"
+    hash_key        = "Housebill"
+    projection_type = "ALL"
+  }  
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    Name = "omni-pb-wt-finalise-cost-status-${var.env}"
+  }
+}
