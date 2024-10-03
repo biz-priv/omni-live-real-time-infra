@@ -388,3 +388,45 @@ resource "aws_ssm_parameter" "sqs_dlq_arn" {
     Name        = element(var.sqs_deadletter_queue_arn_ssm_name, count.index)
   }
 }
+
+resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_sqs_arn" {
+  name  = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.arn"
+  type  = "String"
+  value = aws_sqs_queue.omni_live_finalize_cost_queue.arn
+
+  tags = {
+    Application = "Omni PB WT Updates"
+    CreatedBy   = var.created_by
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.arn"
+  }
+}
+
+resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_status_table" {
+  name  = "/omni-pb-wt-updates/${var.env}/finalise-cost/dynamoDb.tableName"
+  type  = "String"
+  value = aws_dynamodb_table.omni_pb_wt_finilise_cost_status_table.name
+
+  tags = {
+    Application = "Omni PB WT Updates"
+    CreatedBy   = var.created_by
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.arn"
+  }
+}
+
+resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_api_endpoint" {
+  name  = "/omni-pb-wt-updates/${var.env}/finalise-cost/api.endpoint"
+  type  = "String"
+  value = var.finalise_cost_api_endpoint
+
+  tags = {
+    Application = "Omni PB WT Updates"
+    CreatedBy   = var.created_by
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/api.endpoint"
+  }
+}
