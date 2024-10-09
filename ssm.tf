@@ -455,7 +455,7 @@ resource "aws_ssm_parameter" "livelogi_remitvendorno" {
     CreatedBy   = var.created_by
     Environment = var.env
     STAGE       = var.env
-    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.url"
+    Name        = "/omni-pb-wt-updates/${var.env}/livelogi/remitVendorNo"
   }
 }
 
