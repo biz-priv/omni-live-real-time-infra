@@ -10,3 +10,4 @@ sqs_deadletter_queue_name                   = ["omni-live-rt-callin-DLQ-dev", "o
 sqs_queue_arn_ssm_name                      = ["/omni-live-rt-updates/dev/callin/queue.arn", "/omni-live-rt-updates/dev/movement-order/queue.arn"]
 sqs_deadletter_queue_arn_ssm_name           = ["/omni-live-rt-updates/dev/callin/DLQ.arn", "/omni-live-rt-updates/dev/movement-order/DLQ.arn"]
 finalise_cost_api_endpoint                  = "https://wttest.omnilogistics.com/WTKServices/misc.asmx"
+livelogi_remitvendorno                      = "31426"

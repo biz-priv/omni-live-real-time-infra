@@ -444,3 +444,18 @@ resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_sqs_url" {
     Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.url"
   }
 }
+
+resource "aws_ssm_parameter" "livelogi_remitvendorno" {
+  name  = "/omni-pb-wt-updates/${var.env}/livelogi/remitVendorNo"
+  type  = "String"
+  value = var.livelogi_remitvendorno
+
+  tags = {
+    Application = "Omni PB WT Updates"
+    CreatedBy   = var.created_by
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.url"
+  }
+}
+
