@@ -57,3 +57,8 @@ variable "finalise_cost_api_endpoint" {
   type     = string
   nullable = false
 }
+
+variable "livelogi_remitvendorno" {
+  type     = string
+  nullable = false
+}
