@@ -430,3 +430,17 @@ resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_api_endpoint" {
     Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/api.endpoint"
   }
 }
+
+resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_sqs_url" {
+  name  = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.url"
+  type  = "String"
+  value = aws_sqs_queue.omni_live_finalize_cost_queue.url
+
+  tags = {
+    Application = "Omni PB WT Updates"
+    CreatedBy   = var.created_by
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.url"
+  }
+}
