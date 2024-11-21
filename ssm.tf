@@ -96,7 +96,7 @@ resource "aws_ssm_parameter" "omni-pb-rt-stop-dynamodb-name" {
   }
 }
 
-resource "aws_ssm_parameter" "omni-pb-rt-stop-dynamodb-name" {
+resource "aws_ssm_parameter" "omni-pb-rt-users-dynamodb-name" {
   name  = "/omni-pb-rt/${var.env}/users/db"
   type  = "String"
   value =  aws_dynamodb_table.omni-pb-rt-users.name
