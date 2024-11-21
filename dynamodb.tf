@@ -123,6 +123,26 @@ resource "aws_dynamodb_table" "omni-pb-rt-movement-order" {
   }
 }
 
+resource "aws_dynamodb_table" "omni-pb-rt-users" {
+  name             = "omni-pb-rt-users-${var.env}"
+  billing_mode     = "PAY_PER_REQUEST"
+  hash_key         = "id"
+  stream_enabled   = true
+  stream_view_type = "NEW_AND_OLD_IMAGES"
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    Name = "omni-pb-rt-users-${var.env}"
+  }
+}
+
 resource "aws_dynamodb_table" "omni-live-realtime-failed-records-table" {
   name             = "omni-live-realtime-failed-records-${var.env}"
   billing_mode     = "PAY_PER_REQUEST"

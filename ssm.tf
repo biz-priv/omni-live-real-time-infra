@@ -96,6 +96,20 @@ resource "aws_ssm_parameter" "omni-pb-rt-stop-dynamodb-name" {
   }
 }
 
+resource "aws_ssm_parameter" "omni-pb-rt-users-dynamodb-name" {
+  name  = "/omni-pb-rt/${var.env}/users/db"
+  type  = "String"
+  value =  aws_dynamodb_table.omni-pb-rt-users.name
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-rt/${var.env}/users/db"
+  }
+}
+
 resource "aws_ssm_parameter" "stop-index" {
   name  = "/omni-pb-rt/${var.env}/stop/ddb.index"
   type  = "SecureString"
@@ -450,7 +464,7 @@ resource "aws_ssm_parameter" "livelogi_remitvendorno" {
   type  = "String"
   value = var.livelogi_remitvendorno
 
-  tags = {
+   tags = {
     Application = "Omni PB WT Updates"
     CreatedBy   = var.created_by
     Environment = var.env
