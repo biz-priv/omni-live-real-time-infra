@@ -108,12 +108,4 @@ resource "aws_sns_topic_subscription" "omni_pb_rt_orders_sns_subscription" {
   topic_arn = "arn:aws:sns:us-east-1:${var.aws_account_number}:omni-live-rt-replication-orders-rt-ddb-to-sns-${var.env}"
   protocol  = "sqs"
   endpoint  = aws_sqs_queue.omni_live_finalize_cost_queue.arn
-
-  filter_policy = jsonencode(
-    {
-      ready_to_bill = [
-        "Y",
-      ]
-    }
-  )
 }
