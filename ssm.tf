@@ -110,6 +110,19 @@ resource "aws_ssm_parameter" "omni-pb-rt-users-dynamodb-name" {
   }
 }
 
+resource "aws_ssm_parameter" "omni-pb-rt-other-charge-dynamodb-name" {
+  name  = "/omni-pb-rt/${var.env}/other-charge/db"
+  type  = "String"
+  value =  aws_dynamodb_table.omni-pb-rt-other-charge.name
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-rt/${var.env}/other-charge/db"
+  }
+}
 resource "aws_ssm_parameter" "stop-index" {
   name  = "/omni-pb-rt/${var.env}/stop/ddb.index"
   type  = "SecureString"
