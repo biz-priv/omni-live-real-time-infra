@@ -146,13 +146,24 @@ resource "aws_dynamodb_table" "omni-pb-rt-users" {
 resource "aws_dynamodb_table" "omni-pb-rt-other-charge" {
   name             = "omni-pb-rt-other-charge-${var.env}"
   billing_mode     = "PAY_PER_REQUEST"
-  hash_key         = "order_id"
+  hash_key         = "id"
   stream_enabled   = true
   stream_view_type = "NEW_AND_OLD_IMAGES"
 
   attribute {
+    name = "id"
+    type = "S"
+  }
+
+  attribute {
     name = "order_id"
     type = "S"
+  }
+  
+  global_secondary_index {
+    name            = "order_id-index"
+    hash_key        = "order_id"
+    projection_type = "ALL" 
   }
 
   tags = {
