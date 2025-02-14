@@ -9,3 +9,5 @@ sqs_queue_name                              = ["omni-live-rt-callin-queue-prod",
 sqs_deadletter_queue_name                   = ["omni-live-rt-callin-DLQ-prod", "omni-live-rt-movement-order-DLQ-prod"]
 sqs_queue_arn_ssm_name                      = ["/omni-live-rt-updates/prod/callin/queue.arn", "/omni-live-rt-updates/prod/movement-order/queue.arn"]
 sqs_deadletter_queue_arn_ssm_name           = ["/omni-live-rt-updates/prod/callin/DLQ.arn", "/omni-live-rt-updates/prod/movement-order/DLQ.arn"]
+finalise_cost_api_endpoint                  = "https://worldtrak.omnilogistics.com/WTKServices/misc.asmx"
+livelogi_remitvendorno                      = "31426"
