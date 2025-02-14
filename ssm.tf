@@ -96,6 +96,33 @@ resource "aws_ssm_parameter" "omni-pb-rt-stop-dynamodb-name" {
   }
 }
 
+resource "aws_ssm_parameter" "omni-pb-rt-users-dynamodb-name" {
+  name  = "/omni-pb-rt/${var.env}/users/db"
+  type  = "String"
+  value =  aws_dynamodb_table.omni-pb-rt-users.name
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-rt/${var.env}/users/db"
+  }
+}
+
+resource "aws_ssm_parameter" "omni-pb-rt-other-charge-dynamodb-name" {
+  name  = "/omni-pb-rt/${var.env}/other-charge/db"
+  type  = "String"
+  value =  aws_dynamodb_table.omni-pb-rt-other-charge.name
+
+  tags = {
+    Application = "Live Real Time Updates"
+    CreatedBy   = "BizCloudExperts"
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-rt/${var.env}/other-charge/db"
+  }
+}
 resource "aws_ssm_parameter" "stop-index" {
   name  = "/omni-pb-rt/${var.env}/stop/ddb.index"
   type  = "SecureString"
@@ -388,3 +415,48 @@ resource "aws_ssm_parameter" "sqs_dlq_arn" {
     Name        = element(var.sqs_deadletter_queue_arn_ssm_name, count.index)
   }
 }
+
+resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_sqs_arn" {
+  name  = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.arn"
+  type  = "String"
+  value = aws_sqs_queue.omni_live_finalize_cost_queue.arn
+
+  tags = {
+    Application = "Omni PB WT Updates"
+    CreatedBy   = var.created_by
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.arn"
+  }
+}
+
+resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_status_table" {
+  name  = "/omni-pb-wt-updates/${var.env}/finalise-cost/dynamoDb.tableName"
+  type  = "String"
+  value = aws_dynamodb_table.omni_pb_wt_finilise_cost_status_table.name
+
+  tags = {
+    Application = "Omni PB WT Updates"
+    CreatedBy   = var.created_by
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.arn"
+  }
+}
+
+resource "aws_ssm_parameter" "omni_pb_wt_finalise_cost_sqs_url" {
+  name  = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.url"
+  type  = "String"
+  value = aws_sqs_queue.omni_live_finalize_cost_queue.url
+
+  tags = {
+    Application = "Omni PB WT Updates"
+    CreatedBy   = var.created_by
+    Environment = var.env
+    STAGE       = var.env
+    Name        = "/omni-pb-wt-updates/${var.env}/finalise-cost/sqs.url"
+  }
+}
+
+
+
